@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Wrapper } from './HomePage.styles';
+import { Wrapper, Section, Heading, Input } from './HomePage.styles';
 import * as actions from '../../store/actions';
 
 const HomePage = ({ handleFetchData }) => {
   useEffect(() => {
-    handleFetchData();
+    // handleFetchData();
   }, []);
 
   return (
     <Wrapper>
-      homepage
+      <Section>
+        <Heading>Beer API</Heading>
+        <Input placeholder="Search beers..." />
+      </Section>
     </Wrapper>
   )
 };
