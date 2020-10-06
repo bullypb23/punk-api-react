@@ -13,6 +13,7 @@ export const handleFetchData = () => {
     handleLoading();
     axios.get(BASE_URL)
       .then(response => {
+        console.log(response);
         dispatch(handleLoading());
         dispatch(handleFetchDataSuccess(response.data));
       })
@@ -35,3 +36,10 @@ export const handleFetchDataFailed = error => (
     error,
   }
 );
+
+export const handleInputChange = value => (
+  {
+    type: actionTypes.HANDLE_INPUT_CHANGE,
+    value,
+  }
+)

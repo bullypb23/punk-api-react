@@ -1,32 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Wrapper, Section, Heading, Input } from './HomePage.styles';
 import * as actions from '../../store/actions';
+import Items from '../Items/Items';
 
-const HomePage = ({ handleFetchData }) => {
-  useEffect(() => {
-    // handleFetchData();
-  }, []);
-
-  return (
-    <Wrapper>
-      <Section>
-        <Heading>Beer API</Heading>
-        <Input placeholder="Search beers..." />
-      </Section>
-    </Wrapper>
-  )
-};
+const HomePage = ({ handleInputChange }) => (
+  <Wrapper>
+    <Section>
+      <Heading>Beer API</Heading>
+      <Input placeholder="Search beers..." onChange={(e) => handleInputChange(e.target.value)} />
+    </Section>
+    <Items />
+  </Wrapper>
+);
 
 const mapStateToProps = state => (
-  {
-    data: state.data,
-  }
+  {}
 );
 
 const mapDispatchToProps = dispatch => (
   {
-    handleFetchData: data => dispatch(actions.handleFetchData(data)),
+    handleInputChange: value => dispatch(actions.handleInputChange(value)),
   }
 )
 
