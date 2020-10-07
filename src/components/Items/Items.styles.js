@@ -62,3 +62,76 @@ export const Heading = styled.h3`
   color: #40514e;
   padding: 10px 0;
 `;
+
+export const TableFooter = styled.div`
+  flex: 1 1 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #40514e;
+`;
+
+export const Select = styled.select`
+  padding: 10px;
+  outline: none;
+  font-size: 1.2rem;
+`;
+
+export const Option = styled.option`
+  padding: 5px;
+`;
+
+export const SelectContainer = styled.div`
+  flex: 1 1 60%;
+`;
+
+export const ParagraphContainer = styled.div`
+  flex: 1 1 40%;
+`;
+
+export const PaginationContainer = styled.div`
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+
+  > ul.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > li {
+      flex-basis: 5%;
+      height: 100%;
+      border: 1px solid #40514e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        height: 100%;
+        color: #40514e;
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+
+      &.active {
+        background-color: #40514e;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      &.disabled {
+        border-color: #c3c3c3;
+
+        a {
+          color: #c3c3c3;
+        }
+      }
+    }
+  }
+`;

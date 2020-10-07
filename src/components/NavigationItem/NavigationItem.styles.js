@@ -27,8 +27,7 @@ export const StyledLink = styled(NavLink)`
     transition: all 0.2s ease-in;
   }
   
-  &:hover,
-  &.active {
+  &:hover {
 
     &:after {
       width: 100%;

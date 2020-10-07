@@ -8,12 +8,11 @@ export const handleLoading = () => (
   }
 )
 
-export const handleFetchData = () => {
+export const handleFetchData = (page, items) => {
   return dispatch => {
     handleLoading();
-    axios.get(BASE_URL)
+    axios.get(`${BASE_URL}page=${page}&per_page=${items}`)
       .then(response => {
-        console.log(response);
         dispatch(handleLoading());
         dispatch(handleFetchDataSuccess(response.data));
       })
@@ -42,4 +41,51 @@ export const handleInputChange = value => (
     type: actionTypes.HANDLE_INPUT_CHANGE,
     value,
   }
-)
+);
+
+export const handleMaxItems = value => (
+  {
+    type: actionTypes.HANDLE_MAX_ITEMS,
+    value,
+  }
+);
+
+export const handlePageChange = value => (
+  {
+    type: actionTypes.HANDLE_PAGE_CHANGE,
+    value,
+  }
+);
+
+export const handleSearchName = value => (
+  {
+    type: actionTypes.HANDLE_SEARCH_NAME,
+    value,
+  }
+);
+
+export const handleDatabaseSearch = value => {
+  return dispatch => {
+    axios.get(`${BASE_URL}beer_name=${value}`)
+      .then(response => {
+        dispatch(handleDatabaseSearchSuccess(response.data));
+      })
+      .catch(error => {
+        dispatch(handleDatabaseSearchFailed(error.message));
+      })
+  }
+};
+
+export const handleDatabaseSearchSuccess = data => (
+  {
+    type: actionTypes.HANDLE_DATABASE_SEARCH_SUCCESS,
+    data,
+  }
+);
+
+export const handleDatabaseSearchFailed = error => (
+  {
+    type: actionTypes.HANDLE_DATABASE_SEARCH_FAILED,
+    error,
+  }
+);

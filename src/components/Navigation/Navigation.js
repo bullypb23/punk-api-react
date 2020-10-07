@@ -8,7 +8,7 @@ const Navigation = () => {
       <Nav>
         <ListContainer>
           <NavigationItem link="/">Home</NavigationItem>
-          <NavigationItem link="/search_beers">Search</NavigationItem>
+          <NavigationItem link="/beers">Search</NavigationItem>
         </ListContainer>
       </Nav>
     </Wrapper>

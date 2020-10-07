@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://api.punkapi.com/v2/beers?page=1&per_page=10';
+export const BASE_URL = 'https://api.punkapi.com/v2/beers?';

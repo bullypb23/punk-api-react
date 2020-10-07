@@ -1,11 +1,18 @@
 import * as actionTypes from './actionTypes';
 
+const DEFAULT_ITEMS_PER_PAGE = 10;
+
 const initialState = {
   data: [],
   dataLoaded: false,
   isLoading: false,
   error: null,
   name: '',
+  itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
+  page: 1,
+  searchName: '',
+  searchData: [],
+  searchError: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +38,28 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.value,
+      };
+    case actionTypes.HANDLE_MAX_ITEMS:
+      return {
+        ...state,
+        itemsPerPage: +action.value,
+      };
+    case actionTypes.HANDLE_PAGE_CHANGE:
+      return {
+        ...state,
+        page: +action.value,
+      };
+    case actionTypes.HANDLE_DATABASE_SEARCH_SUCCESS:
+      return {
+        ...state,
+        searchData: action.data,
+        error: null,
+      };
+    case actionTypes.HANDLE_DATABASE_SEARCH_FAILED:
+      return {
+        ...state,
+        searchData: [],
+        error: action.error,
       };
     default: return state;
   }
