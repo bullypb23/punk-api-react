@@ -2,28 +2,28 @@ import styled, { keyframes } from 'styled-components';
 
 
 const spinner1 = keyframes`
-  0% {
+  from {
     transform: scale(0);
   }
-  100% {
+  to {
     transform: scale(1);
-  }
-`;
-
-const spinner2 = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
   }
 `;
 
 const spinner3 = keyframes`
-  0% {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+`;
+
+const spinner2 = keyframes`
+  from {
     transform: translate(0, 0);
   }
-  100% {
+  to {
     transform: translate(24px, 0);
   }
 `;
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
   width: 80px;
   height: 80px;
 
-  div {
+  > div {
     position: absolute;
     top: 33px;
     width: 13px;
