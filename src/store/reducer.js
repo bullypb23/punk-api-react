@@ -13,6 +13,7 @@ const initialState = {
   searchName: '',
   searchData: [],
   searchError: null,
+  selectedBeer: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -49,17 +50,32 @@ const reducer = (state = initialState, action) => {
         ...state,
         page: +action.value,
       };
+    case actionTypes.HANDLE_SEARCH_NAME:
+      return {
+        ...state,
+        searchName: action.value,
+      };
     case actionTypes.HANDLE_DATABASE_SEARCH_SUCCESS:
       return {
         ...state,
         searchData: action.data,
-        error: null,
+        searchError: null,
       };
     case actionTypes.HANDLE_DATABASE_SEARCH_FAILED:
       return {
         ...state,
         searchData: [],
-        error: action.error,
+        searchError: action.error,
+      };
+    case actionTypes.HANDLE_BEER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        selectedBeer: action.data[0],
+      };
+    case actionTypes.HANDLE_BEER_DETAILS_FAILED:
+      return {
+        ...state,
+        selectedBeer: {},
       };
     default: return state;
   }

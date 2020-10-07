@@ -11,7 +11,7 @@ export const handleLoading = () => (
 export const handleFetchData = (page, items) => {
   return dispatch => {
     handleLoading();
-    axios.get(`${BASE_URL}page=${page}&per_page=${items}`)
+    axios.get(`${BASE_URL}?page=${page}&per_page=${items}`)
       .then(response => {
         dispatch(handleLoading());
         dispatch(handleFetchDataSuccess(response.data));
@@ -66,13 +66,17 @@ export const handleSearchName = value => (
 
 export const handleDatabaseSearch = value => {
   return dispatch => {
-    axios.get(`${BASE_URL}beer_name=${value}`)
-      .then(response => {
-        dispatch(handleDatabaseSearchSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(handleDatabaseSearchFailed(error.message));
-      })
+    if (value) {
+      axios.get(`${BASE_URL}?beer_name=${value}`)
+        .then(response => {
+          dispatch(handleDatabaseSearchSuccess(response.data));
+        })
+        .catch(error => {
+          dispatch(handleDatabaseSearchFailed(error.message));
+        })
+    } else {
+      dispatch(handleDatabaseSearchSuccess([]));
+    }
   }
 };
 
@@ -89,3 +93,30 @@ export const handleDatabaseSearchFailed = error => (
     error,
   }
 );
+
+export const handleFetchBeerDetails = id => {
+  return dispatch => {
+    axios.get(`${BASE_URL}/${id}`)
+      .then(response => {
+        dispatch(handleFetchBeerDetailsSuccess(response.data));
+      })
+      .catch(error => {
+        dispatch(handleFetchBeerDetailsFailed(error.message));
+      })
+  }
+};
+
+export const handleFetchBeerDetailsSuccess = data => (
+  {
+    type: actionTypes.HANDLE_BEER_DETAILS_SUCCESS,
+    data,
+  }
+);
+
+export const handleFetchBeerDetailsFailed = error => (
+  {
+    type: actionTypes.HANDLE_BEER_DETAILS_FAILED,
+    error,
+  }
+);
+

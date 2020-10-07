@@ -34,6 +34,10 @@ export const Input = styled.input`
   &:focus {
     border-bottom: 2px solid #576d69;
   }
+
+  @media (max-width: 576px) {
+    width: 70%;
+  }
 `;
 
 export const Paragraph = styled.p`

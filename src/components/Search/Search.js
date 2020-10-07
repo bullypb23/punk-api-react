@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Wrapper, Section, Heading, Input, Paragraph, Container, StyledLink, ItemsSection } from './Search.styles';
 import * as actions from '../../store/actions';
 
-const Search = ({ handleInputChange, handleDatabaseSearch, data, error }) => {
+const Search = ({ handleInputChange, handleDatabaseSearch, data, error, name }) => {
   const debouncedSave = useCallback(
 		debounce((name) => handleDatabaseSearch(name), 400),
 		[]
@@ -11,7 +11,7 @@ const Search = ({ handleInputChange, handleDatabaseSearch, data, error }) => {
   
   const handleInput = e => {
     const value = e.target.value.split(' ').join('_');
-    handleInputChange(value);
+    handleInputChange(e.target.value);
     debouncedSave(value);
   }
 
@@ -52,7 +52,7 @@ const Search = ({ handleInputChange, handleDatabaseSearch, data, error }) => {
     <Wrapper>
       <Section>
         <Heading>Search Database</Heading>
-        <Input placeholder="Search beers..." onChange={handleInput} />
+        <Input placeholder="Search beers..." value={name} onChange={handleInput} />
       </Section>
       <Container>
         {items}
@@ -65,6 +65,7 @@ const mapStateToProps = state => (
   {
     data: state.searchData,
     error: state.searchError,
+    name: state.searchName,
   }
 );
 

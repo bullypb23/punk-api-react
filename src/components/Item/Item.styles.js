@@ -21,7 +21,6 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   height: 50px;
-  /* width: 50px; */
 `;
 
 export const Paragraph = styled.p`
