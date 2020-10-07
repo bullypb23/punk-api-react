@@ -28,7 +28,7 @@ export const TableHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color:  #c3c3c3;
+  background-color:  #e5e5e5;
 `;
 
 export const NameSection = styled.div`
@@ -52,8 +52,6 @@ export const BrewedSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  /* border-right: 1px solid #40514e;
-  border-left: 1px solid #40514e; */
 `;
 
 export const Section = styled.div`
@@ -82,6 +80,7 @@ export const TableFooter = styled.div`
   justify-content: flex-start;
   align-items: center;
   border: 1px solid #40514e;
+  border-top: none;
 `;
 
 export const Select = styled.select`
@@ -108,6 +107,13 @@ export const ParagraphContainer = styled.div`
   @media (max-width: 576px) {
     flex: 1 1 50%;
   }
+`;
+
+export const Paragraph = styled.p`
+  color: red;
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: 10px 0;
 `;
 
 export const PaginationContainer = styled.div`

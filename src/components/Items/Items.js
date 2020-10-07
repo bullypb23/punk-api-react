@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { 
-  Wrapper, Container, TableHeader, Heading, Section, NameSection, PaginationContainer,
+  Wrapper, Container, TableHeader, Heading, Section, NameSection, PaginationContainer, Paragraph,
   ImageSection, BrewedSection, TableFooter, Select, Option, SelectContainer, ParagraphContainer,
 } from './Items.styles';
 import * as actions from '../../store/actions';
 import Item from '../Item/Item';
 import Pagination from 'react-js-pagination';
+import Spinner from '../Spinner/Spinner';
 
 const Items = ({ 
   data, dataLoaded, isLoading, error, handleFetchData, name, handleMaxItems,
@@ -47,6 +48,7 @@ const Items = ({
             <Heading center>ABV</Heading>
           </Section>
         </TableHeader>
+        {isLoading ? <Spinner /> : null}
         {dataLoaded && data
           .filter(item => item.name.toLowerCase().includes(name.toLowerCase()))
           .map(item => (
@@ -71,6 +73,7 @@ const Items = ({
             </Select>
           </SelectContainer>
         </TableFooter>
+        {error ? <Paragraph>{error}</Paragraph> : null}
         <PaginationContainer>
           <Pagination
             activePage={page}

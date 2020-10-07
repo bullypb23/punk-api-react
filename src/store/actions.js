@@ -10,15 +10,15 @@ export const handleLoading = () => (
 
 export const handleFetchData = (page, items) => {
   return dispatch => {
-    handleLoading();
+    dispatch(handleLoading());
     axios.get(`${BASE_URL}?page=${page}&per_page=${items}`)
       .then(response => {
-        dispatch(handleLoading()); 
         dispatch(handleFetchDataSuccess(response.data));
+        dispatch(handleLoading()); 
       })
       .catch(error => {
-        dispatch(handleLoading()); 
         dispatch(handleFetchDataFailed(error.message));
+        dispatch(handleLoading()); 
       })
   };
 };
@@ -32,7 +32,7 @@ export const handleFetchDataSuccess = data => (
 
 export const handleFetchDataFailed = error => (
   {
-    type: actionTypes.HANDLE_FETCH_DATA_SUCCESS,
+    type: actionTypes.HANDLE_FETCH_DATA_FAILED,
     error,
   }
 );

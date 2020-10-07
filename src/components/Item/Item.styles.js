@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 10px;
   border: 1px solid #40514e;
+  border-top: none;
 `;
 
 export const Section = styled.div`

@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.HANDLE_LOADING:
       return {
         ...state,
-        loading: !state.loading,
+        isLoading: !state.isLoading,
       };
     case actionTypes.HANDLE_FETCH_DATA_SUCCESS:
       return {
