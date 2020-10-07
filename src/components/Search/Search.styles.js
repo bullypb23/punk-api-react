@@ -35,8 +35,13 @@ export const Input = styled.input`
     border-bottom: 2px solid #576d69;
   }
 
+  @media (max-width: 768px) {
+    width: 40%;
+  }
+
+  
   @media (max-width: 576px) {
-    width: 70%;
+    width: 80%;
   }
 `;
 

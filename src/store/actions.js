@@ -13,10 +13,11 @@ export const handleFetchData = (page, items) => {
     handleLoading();
     axios.get(`${BASE_URL}?page=${page}&per_page=${items}`)
       .then(response => {
-        dispatch(handleLoading());
+        dispatch(handleLoading()); 
         dispatch(handleFetchDataSuccess(response.data));
       })
       .catch(error => {
+        dispatch(handleLoading()); 
         dispatch(handleFetchDataFailed(error.message));
       })
   };

@@ -4,7 +4,7 @@ import { Wrapper, Section, Heading, Input, Paragraph, Container, StyledLink, Ite
 import * as actions from '../../store/actions';
 
 const Search = ({ handleInputChange, handleDatabaseSearch, data, error, name }) => {
-  const debouncedSave = useCallback(
+  const debouncedFunc = useCallback(
 		debounce((name) => handleDatabaseSearch(name), 400),
 		[]
   );
@@ -12,7 +12,7 @@ const Search = ({ handleInputChange, handleDatabaseSearch, data, error, name }) 
   const handleInput = e => {
     const value = e.target.value.split(' ').join('_');
     handleInputChange(e.target.value);
-    debouncedSave(value);
+    debouncedFunc(value);
   }
 
   function debounce(func, wait, immediate) {
@@ -45,7 +45,7 @@ const Search = ({ handleInputChange, handleDatabaseSearch, data, error, name }) 
       </ItemsSection>
     ))
   } else {
-    items = <Paragraph>No data</Paragraph>
+    items = <Paragraph>There is no data. Try different search.</Paragraph>
   }
 
   return (

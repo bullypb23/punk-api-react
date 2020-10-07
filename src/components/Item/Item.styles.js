@@ -27,6 +27,10 @@ export const Paragraph = styled.p`
   font-size: 1.2rem;
   color: #40514e;
   padding: 10px 0;
+
+  @media (max-width: 576px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Container = styled.div`

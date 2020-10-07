@@ -12,6 +12,12 @@ export const Paragraph = styled.p`
   color: #40514e;
   padding: 10px 0;
   flex: 1 1 100%;
+
+  ${props => props.small && 'font-size: 1rem; padding: 20px;'};
+  
+  @media (max-width: 576px) {
+    ${props => props.center && 'text-align: center;'};
+  }
 `;
 
 export const Container = styled.div`
@@ -21,14 +27,19 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  @media (max-width: 576px) {
+    flex-basis: 100%;
+  }
 `;
 
 export const ImageContainer = styled.div`
   flex: 1 1 20%;
   padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 
   @media (max-width: 576px) {
     flex: 1 1 100%;
@@ -36,8 +47,11 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 300px;
-  /* width: 100%; */
+  max-width: 100%;
+
+  @media (max-width: 576px) {
+    height: 300px;
+  }
 `;
 
 export const DetailsContainer = styled.div`
@@ -54,7 +68,6 @@ export const DetailsContainer = styled.div`
 
   @media (max-width: 576px) {
     flex: 1 1 100%;
-    padding: 10px;
   }
 `;
 
@@ -84,4 +97,26 @@ export const SmallParagraph = styled.p`
   color: #40514e;
   padding: 10px 20px;
   flex: 1 1 100%;
+`;
+
+export const Button = styled.button`
+  color: #fff;
+  background-color: #2f89fc;
+  padding: 10px 15px;
+  width: auto;
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  cursor: pointer;
+`;
+
+export const ButtonContainer = styled.div`
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    justify-content: center;
+  }
 `;

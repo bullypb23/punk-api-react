@@ -38,13 +38,13 @@ const Items = ({
             <Heading>Beer Name</Heading>
           </NameSection>
           <ImageSection>
-            <Heading>Image</Heading>
+            <Heading center>Image</Heading>
           </ImageSection>
           <BrewedSection>
-            <Heading>First Brewed</Heading>
+            <Heading center>First Brewed</Heading>
           </BrewedSection>
           <Section>
-            <Heading>ABV</Heading>
+            <Heading center>ABV</Heading>
           </Section>
         </TableHeader>
         {dataLoaded && data

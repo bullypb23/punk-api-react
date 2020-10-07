@@ -16,6 +16,10 @@ const Global = createGlobalStyle`
     color: #fff;
     text-decoration: none;
   }
+
+  body {
+    max-width: 100vw;
+  }
 `;
 
 export default Global;

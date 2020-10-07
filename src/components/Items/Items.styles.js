@@ -6,18 +6,24 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 30px 0;
+  max-width: 100vw;
 `;
 
 export const Container = styled.div`
-  flex-basis: 70%;
+  flex-basis: 80%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  @media (max-width: 576px) {
+    flex-basis: 100%;
+  }
 `;
 
 export const TableHeader = styled.div`
   flex: 1 1 100%;
+  height: 100%;
   border: 1px solid #40514e;
   display: flex;
   justify-content: center;
@@ -27,16 +33,16 @@ export const TableHeader = styled.div`
 
 export const NameSection = styled.div`
   flex: 1 1 40%;
-  padding: 10px 20px;
+  height: 100%;
+  padding: 10px;
 `;
 
 export const ImageSection = styled.div`
   flex: 1 1 20%;
+  height: 100%;
   display: flex;
   padding: 10px;
   justify-content: center;
-  border-right: 1px solid #40514e;
-  border-left: 1px solid #40514e;
   align-items: center;
 `;
 
@@ -46,6 +52,8 @@ export const BrewedSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  /* border-right: 1px solid #40514e;
+  border-left: 1px solid #40514e; */
 `;
 
 export const Section = styled.div`
@@ -53,7 +61,6 @@ export const Section = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid #40514e;
   padding: 10px;
 `;
 
@@ -61,6 +68,11 @@ export const Heading = styled.h3`
   font-size: 1.5rem;
   color: #40514e;
   padding: 10px 0;
+  ${props => props.center && 'text-align: center'};
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+  }
 `;
 
 export const TableFooter = styled.div`
@@ -84,10 +96,18 @@ export const Option = styled.option`
 
 export const SelectContainer = styled.div`
   flex: 1 1 60%;
+
+  @media (max-width: 576px) {
+    flex: 1 1 50%;
+  }
 `;
 
 export const ParagraphContainer = styled.div`
   flex: 1 1 40%;
+
+  @media (max-width: 576px) {
+    flex: 1 1 50%;
+  }
 `;
 
 export const PaginationContainer = styled.div`
@@ -115,6 +135,11 @@ export const PaginationContainer = styled.div`
         color: #40514e;
         padding: 10px;
         font-size: 1.2rem;
+
+        @media (max-width: 576px) {
+          font-size: 1rem;
+          padding: 5px;
+        }
       }
 
       &.active {
