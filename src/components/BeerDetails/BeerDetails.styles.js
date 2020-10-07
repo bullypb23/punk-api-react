@@ -92,13 +92,6 @@ export const Span = styled.span`
   font-weight: bold;
 `;
 
-export const SmallParagraph = styled.p`
-  font-size: 1rem;
-  color: #40514e;
-  padding: 10px 20px;
-  flex: 1 1 100%;
-`;
-
 export const Button = styled.button`
   color: #fff;
   background-color: #2f89fc;
